@@ -1,15 +1,15 @@
 <?php
-class modelAdminCategory{
+class modelAdminCategory {
 
-//--------------------------List
-public static function getCategoryList() {
-    $sql = "SELECT * FROM category ORDER By category.name ASC";
-    $db = new Database();
-    //$rows = массив данных
-    $rows = $db->getAll($sql);
-    //----------------------------------------------------------
-    return $rows;
+    // List
+    public static function getCategoryList() {
+        $sql = "SELECT * FROM category ORDER BY category.name ASC";
+
+        $db = new Database();
+        // Получаем все записи
+        $rows = $db->getAll($sql);
+
+        return $rows;
+    }
 }
-
-}//class
-?>
+//class

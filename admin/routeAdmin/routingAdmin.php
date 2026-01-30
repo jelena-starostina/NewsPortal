@@ -19,31 +19,31 @@ elseif ($path == 'logout')
     // Выход
     $response = controllerAdmin::logoutAction();
 }
-//____________________________listNews
-elseif ($path=='newsAdmin')
-     {
+elseif ($path=='newsAdmin') {
     $response=controllerAdminNews::NewsList();
 }
-//-----------------------------add news
-elseif ($path == 'newsAdd') {
-    $response = controllerAdminNews::newsAddForm();
+elseif ($path=='newsAdd') {
+    $response=controllerAdminNews::newsAddForm();
 }
 elseif ($path == 'newsAddResult') {
     $response = controllerAdminNews::newsAddResult();
 }
-//-----------------------------edit news
-elseif ($path == 'newsEdit' && isset($_GET['id'])) {
-   
-    $response = controllerAdminNews::newsEditForm($_GET['id']);
+// --- edit_news
+elseif($path == 'newsEdit' && isset($_GET['id'])){
+    $response=controllerAdminNews::newsEditForm($_GET['id']);
 }
-elseif ($path == 'newsEditResult' && isset($_GET['id'])) {
-    $response = controllerAdminNews::newsEditResult($_GET['id']);
+elseif($path == 'newsEditResult' && isset($_GET['id'])){
+    $response=controllerAdminNews::newsEditResult($_GET['id']);
 }
-
+// --- delete_news
+elseif($path == 'newsDel' && isset($_GET['id'])){
+    $response=controllerAdminNews::newsDeleteForm($_GET['id']);
+}
+elseif($path == 'newsDeleteResult' && isset($_POST['id'])){
+    $response=controllerAdminNews::newsDeleteResult($_POST['id']);
+}
 else
 {
     // Страница не существует
     $response = controllerAdmin::error404();
 }
-
-
